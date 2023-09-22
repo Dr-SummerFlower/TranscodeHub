@@ -1,0 +1,76 @@
+/**
+ * @文件名: style
+ * @创建者: 夏花
+ * @创建时间: 2023-09-09
+*/
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.container {
+    margin-top: 30px;
+}
+
+.jumbotron {
+    background-color: #343a40;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.card {
+    border: none;
+}
+
+.card-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.btn-custom {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: #0056b3;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.custom-file-input::before {
+    content: '选择文件';
+    display: inline-block;
+    background: linear-gradient(top, #f9f9f9, #e3e3e3);
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* 当文件已选择时，更改文件上传文本的样式 */
+.custom-file-input.has-file::before {
+    content: '更改文件';
+    background: linear-gradient(top, #f2f2f2, #e0e0e0);
+}
+
+/* 显示文件名的样式 */
+.selected-file {
+    display: block;
+    margin-top: 5px;
+    color: #333;
+    font-size: 14px;
+}

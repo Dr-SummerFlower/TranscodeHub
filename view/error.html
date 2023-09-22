@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>错误信息</title>
+    <link href="/bootstrap-4.5.2-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bootstrap-icons-1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .card-header.bg-danger {
+            background: linear-gradient(to right, #fd6868, #f39237, #ebcb46);
+        }
+
+        .error-stack {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card shadow border border-danger">
+                    <div class="card-header bg-danger text-white">
+                        <i class="bi bi-exclamation"></i>
+                        <span>{{ errorMessage }}</span>
+                    </div>
+                    <hr />
+                    <pre class="error-stack"><code>{{ errorStack }}</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // 解析URL参数
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // 获取来源页面参数值
+        var fromPage = getUrlParameter('from');
+
+        // 根据来源页面参数值决定返回链接
+        var returnLink = '';
+        if (fromPage === 'video') {
+            returnLink = '/video'; // 返回到视频转换页面
+        } else if (fromPage === 'audio') {
+            returnLink = '/audio'; // 返回到音频转换页面
+        } else {
+            returnLink = '/'; // 默认返回到首页
+        }
+
+        setTimeout(() => {
+            location.href = returnLink;
+        }, 3000);
+    </script>
+    <script src="/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+</body>
+
+</html>
